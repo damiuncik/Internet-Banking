@@ -1,0 +1,88 @@
+<app-header></app-header>
+<div
+  class="position-absolute top-50 start-50 translate-middle black-box bg-dark"
+>
+  <div class="container py-5 h-100">
+    <div class="row h-100">
+      <div class="col-12 text-center">
+        <h2>Sold & Transfer</h2>
+      </div>
+      <div class="col-6">
+        <div class="card-body p-5 text-center">
+          <form  #soldForm="ngForm" (ngSubmit)="onSubmitSold(soldForm)">
+            <div class="form-group">
+              <label class="form-control position-start text-uppercase"
+                >Your Sold: <app-sold-amount></app-sold-amount></label
+              >
+            </div>
+            
+            <br /><br />
+            <div class="form-group">
+              <label class="form-control">Add to your sold/Extract:</label>
+              <br />
+              <input
+                class="form-control"
+                id="amountSold"
+                type="number"
+                min="0"
+                name="soldAmount"
+                [(ngModel)]="soldAmount"
+              />
+            </div>
+            <br />
+            <button class="btn btn-primary" 
+            type="button" 
+            (click)="addToSold(soldAmount)"
+            >Add</button>
+            |
+            <button
+              class="btn btn-primary" 
+              type="button"
+              (click)="extractFromSold(soldAmount)">
+              Subtract
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card-body p-5 text-center">
+          <form #transferForm="ngForm" (ngSubmit)="onSubmitTransfer(transferForm)">
+            <div class="form-group">
+              <label class="form-control">Make a Transfer</label>
+            </div>
+            <br /><br />
+            <div class="form-group">
+              <label class="form-control">How much will you transfer?</label>
+              <br />
+              <input
+                type="number"
+                class="form-control"
+                id="amountTransfer"
+                min="1"
+                required
+                name="amountTransfer"
+                ngModel
+              />
+            </div>
+            <br /><br />
+            <div class="form-group">
+              <label class="form-control">Who are you transferring to?</label>
+              <br />
+              <input
+                type="text"
+                class="form-control"
+                id="toWhoTransfer"
+                required
+                name="nameTransfer"
+                ngModel
+              />
+            </div>
+            <br />
+            <button class="btn btn-primary" type="submit" [disabled]="!transferForm.valid" >Make it!</button> |
+            <button class="btn btn-primary" (click)="onCancel()">I changed my mind...</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

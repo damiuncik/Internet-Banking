@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="position-absolute top-50 start-50 translate-middle black-box bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center h-100">
+      <div class="col-12">
+        <h2 class="text-center">Your Deposits</h2>
+        <div class="card-body p-5 text-center">
+            <ul class="list-group">
+                <a  
+                class="list-group-item" 
+                style="cursor: pointer;"
+                *ngFor="let deposits of deposits"
+                >
+                <strong>Amount:</strong> {{ deposits.amount }}<br>
+                <strong>Description:</strong> {{ deposits.description }}  <br>          
+              </a>
+            </ul>
+              <div class="mt-4">
+            <p>Delete a deposit</p><br><div class="form-group">
+            <input type="text" [(ngModel)]="descriptionToDelete" placeholder="Enter Description"> |
+            <button class="btn btn-danger" (click)="deleteDepositByDescription(descriptionToDelete)">Delete</button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

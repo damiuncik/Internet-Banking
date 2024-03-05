@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="position-absolute top-50 start-50 translate-middle black-box bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center h-100">
+      <div class="col-12">
+        <h2 class="text-center">Deposit</h2>
+        <div class="card-body p-5 text-center">
+          <form  #depositForm="ngForm" (ngSubmit)="onSubmitDeposit(depositForm)">
+            <div class="form-group">
+              <label for="amountDeposit">How much?</label>
+              <input type="number" 
+              id="amountDeposit" 
+              class="form-control" 
+              required min="1" 
+              name="depositAmount"
+              [(ngModel)]="depositAmount"/>
+            </div>
+            <div class="form-group">
+              <label for="description">Some details?</label>
+              <textarea 
+              name="description" 
+              id="description" 
+              class="form-control" 
+              cols="30" 
+              rows="5"
+              required
+              name="depositDescription"
+              [(ngModel)]="depositDescription"></textarea>
+            </div>
+            <div class="mt-4">
+              <button type="submit" class="btn btn-primary" >Submit</button>
+            </div>
+          </form>
+          <div class="mt-4">
+            <p>Welcome to our deposit page!</p>
+            <p>Please enter the amount you wish to deposit and provide some details.</p>
+            <p>Example: You can deposit $100 for your monthly subscription.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
